@@ -11,7 +11,19 @@ import (
 	"time"
 )
 
-var canteen *openmensa.Canteen
+var (
+	canteen *openmensa.Canteen
+
+	emojis = map[string][]string {
+		":pizza:": {"pizza"},
+		":fries:": {"pommes"},
+		":hamburger:": {"burger"},
+		":fish:": {"lachs", "filet", "fisch", "kabeljau"},
+		":apple:": {"apfel", "äpfel"},
+		":poultry_leg:": {"hänchen"},
+		":meat_on_bone:": {"schnitzel"},
+	}
+)
 
 func main() {
 	if len(os.Args) <= 0 {
@@ -65,8 +77,23 @@ func sendMealsForDate(s *discordgo.Session, t time.Time, channel string) {
 	var messages = make([]*discordgo.MessageEmbedField, len(meals))
 	var footer = ""
 	for i, meal := range meals {
+		prefix := ""
+
+		outer: for emoji, keywords := range emojis {
+			for _, keyword := range keywords {
+				if strings.Contains(strings.ToLower(meal.Name), keyword) {
+					prefix += emoji
+					continue outer;
+				}
+			}
+		}
+
+		if len(prefix) > 0 {
+			prefix += " "
+		}
+
 		messages[i] = &discordgo.MessageEmbedField{
-			Name: meal.Name,
+			Name: prefix + meal.Name,
 			Value: fmt.Sprintf("%.2f€", *meal.Prices.Students),
 		}
 		if len(meal.Notes) > 0 {
