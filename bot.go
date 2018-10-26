@@ -22,6 +22,7 @@ var (
 		":apple:": {"apfel", "äpfel"},
 		":poultry_leg:": {"hänchen"},
 		":meat_on_bone:": {"schnitzel"},
+		":spaghetti:": {"nudel", "spaghetti", "pasta"},
 	}
 )
 
