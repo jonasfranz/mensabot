@@ -1,0 +1,11 @@
+# github.com/bwmarrin/discordgo v0.18.0
+github.com/bwmarrin/discordgo
+# github.com/gorilla/websocket v1.4.0
+github.com/gorilla/websocket
+# github.com/kiliankoe/openmensa v0.0.0-20160914233745-a68c3aca59c0
+github.com/kiliankoe/openmensa
+# golang.org/x/crypto v0.0.0-20181025213731-e84da0312774
+golang.org/x/crypto/nacl/secretbox
+golang.org/x/crypto/internal/subtle
+golang.org/x/crypto/poly1305
+golang.org/x/crypto/salsa20/salsa
