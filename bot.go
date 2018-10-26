@@ -57,29 +57,23 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 func sendMealsForDate(s *discordgo.Session, t time.Time, channel string) {
-	msg, err := s.ChannelMessageSend(channel, "Just a second...")
-	if err != nil {
-		println("error sending message: ", err)
-		return
-	}
 	meals, err := canteen.GetMeals(t)
 	if err != nil {
-		s.ChannelMessageEdit(channel, msg.ID, "An error occured :angry:")
+		s.ChannelMessageSend(channel, ":angry: an error occured")
 		return
 	}
 	var messages = make([]*discordgo.MessageEmbedField, len(meals))
 	var footer = ""
 	for i, meal := range meals {
 		messages[i] = &discordgo.MessageEmbedField{
-			Name: fmt.Sprintf("%s: %s", meal.Category, meal.Name),
+			Name: meal.Name,
 			Value: fmt.Sprintf("%.2f€", *meal.Prices.Students),
 		}
 		if len(meal.Notes) > 0 {
 			footer += fmt.Sprintf("[%d] %s\n", i + 1, strings.Join(meal.Notes, ", "))
 		}
 	}
-	empty := ""
-	s.ChannelMessageEditComplex(&discordgo.MessageEdit{
+	s.ChannelMessageSendComplex(channel, &discordgo.MessageSend{
 		Embed: &discordgo.MessageEmbed{
 			Title: fmt.Sprintf("** :spaghetti: Menü vom %s**", t.Format("02.01.2006")),
 			Fields: messages,
@@ -88,8 +82,5 @@ func sendMealsForDate(s *discordgo.Session, t time.Time, channel string) {
 				Text: footer,
 			},
 		},
-		ID: msg.ID,
-		Channel: msg.ChannelID,
-		Content: &empty,
 	})
 }
