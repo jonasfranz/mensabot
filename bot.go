@@ -65,7 +65,16 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "!mensa" {
-		sendMealsForDate(s, time.Now(), m.ChannelID)
+		date := time.Now()
+		switch date.Weekday() {
+		case time.Saturday:
+			date = date.AddDate(0, 0, -1)
+			break
+		case time.Sunday:
+			date = date.AddDate(0,0, -2)
+			break
+		}
+		sendMealsForDate(s, date, m.ChannelID)
 	}
 }
 
@@ -103,7 +112,7 @@ func sendMealsForDate(s *discordgo.Session, t time.Time, channel string) {
 	}
 	s.ChannelMessageSendComplex(channel, &discordgo.MessageSend{
 		Embed: &discordgo.MessageEmbed{
-			Title: fmt.Sprintf("** :spaghetti: Menü vom %s**", t.Format("02.01.2006")),
+			Title: fmt.Sprintf("**Menü vom %s**", t.Format("02.01.2006")),
 			Fields: messages,
 			Footer: &discordgo.MessageEmbedFooter{
 				IconURL: "https://pbs.twimg.com/profile_images/643755515118505984/xzZMK7fU_400x400.png",
