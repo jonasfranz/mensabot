@@ -24,6 +24,7 @@ var (
 		":poultry_leg:": {"hänchen"},
 		":meat_on_bone:": {"schnitzel"},
 		":spaghetti:": {"nudel", "spaghetti", "pasta"},
+		":bread:": {"brot", "brötchen"}
 	}
 )
 
