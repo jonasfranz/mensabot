@@ -16,7 +16,7 @@ var (
 
 	emojis = map[string][]string {
 		":pizza:": {"pizza"},
-		":hotdog:": {"wurst"},
+		":hotdog:": {"wurst", "würstchen", "hotdog"},
 		":fries:": {"pommes"},
 		":hamburger:": {"burger"},
 		":fish:": {"lachs", "filet", "fisch", "kabeljau"},
