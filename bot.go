@@ -24,7 +24,8 @@ var (
 		":poultry_leg:": {"hähnchen"},
 		":meat_on_bone:": {"schnitzel", "steak", "schwein", "huhn", "geflügel"},
 		":spaghetti:": {"nudel", "spaghetti", "pasta"},
-		":bread:": {"brot", "brötchen"}
+		":bread:": {"brot", "brötchen"},
+		":rice:": {"reis"}
 	}
 )
 
