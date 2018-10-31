@@ -22,7 +22,7 @@ var (
 		":fish:": {"lachs", "filet", "fisch", "kabeljau"},
 		":apple:": {"apfel", "äpfel"},
 		":poultry_leg:": {"hänchen"},
-		":meat_on_bone:": {"schnitzel"},
+		":meat_on_bone:": {"schnitzel", "steak", "schwein", "huhn", "geflügel"},
 		":spaghetti:": {"nudel", "spaghetti", "pasta"},
 	}
 )
