@@ -19,12 +19,13 @@ var (
 		":hotdog:": {"wurst", "würstchen", "hotdog"},
 		":fries:": {"pommes"},
 		":hamburger:": {"burger"},
-		":fish:": {"lachs", "filet", "fisch", "kabeljau"},
+		":fish:": {"lachs", "filet", "fisch", "kabeljau", "hering", "makrele", "sardine", "schellfisch", "seezunge"},
 		":apple:": {"apfel", "äpfel"},
-		":poultry_leg:": {"hänchen"},
+		":poultry_leg:": {"hähnchen"},
 		":meat_on_bone:": {"schnitzel", "steak", "schwein", "huhn", "geflügel"},
 		":spaghetti:": {"nudel", "spaghetti", "pasta"},
-		":bread:": {"brot", "brötchen"}
+		":bread:": {"brot", "brötchen"},
+		":rice:": {"reis"}
 	}
 )
 
