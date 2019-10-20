@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/bwmarrin/discordgo"
-	"github.com/kiliankoe/openmensa"
 	"os"
 	"os/signal"
 	"strings"
 	"syscall"
 	"time"
+	
+	"github.com/bwmarrin/discordgo"
+	"github.com/kiliankoe/openmensa"
 )
 
 var (
